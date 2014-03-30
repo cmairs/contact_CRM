@@ -11,7 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140303152428) do
+ActiveRecord::Schema.define(:version => 20140329174412) do
+
+  create_table "accounts", :force => true do |t|
+    t.boolean  "is_active"
+    t.string   "name"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "company_name"
+  end
+
+  create_table "addresses", :force => true do |t|
+    t.string   "line1"
+    t.string   "line2"
+    t.string   "line3"
+    t.string   "town"
+    t.string   "country"
+    t.string   "postcode"
+    t.string   "address_type"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "contacts", :force => true do |t|
     t.string   "firstname"
@@ -20,6 +40,20 @@ ActiveRecord::Schema.define(:version => 20140303152428) do
     t.integer  "phonenumber"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "emails", :force => true do |t|
+    t.string   "email_address"
+    t.string   "email_type"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "phones", :force => true do |t|
+    t.string   "phone_number"
+    t.string   "phone_type"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "users", :force => true do |t|
